@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Severin Development Brand Colors */
+  --color-brand: #E52713;
+  --color-brand-hover: #C91F0F;
+  --color-brand-light: #FEF2F1;
+  --color-text: #5F6062;
+  --color-text-light: #8A8B8D;
+  --color-bg: #FAFAFA;
+  --color-white: #FFFFFF;
+  --color-border: #E5E5E5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Geologica', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.3;
+}
+
+/* Typography - по брендбуку */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+p, span, div {
+  line-height: 1.3;
+}
+
+/* Brand button */
+.btn-brand {
+  @apply bg-[#E52713] hover:bg-[#C91F0F] text-white font-medium px-4 py-2 rounded-lg transition-colors;
+}
+
+.btn-brand-outline {
+  @apply border-2 border-[#E52713] text-[#E52713] hover:bg-[#FEF2F1] font-medium px-4 py-2 rounded-lg transition-colors;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-xl border border-gray-200 shadow-sm;
+}
+
+.card-hover {
+  @apply hover:border-[#E52713] hover:shadow-md transition-all duration-200;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Fullscreen layout */
+.layout-fullscreen {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  background: var(--color-white);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebar-nav-item {
+  @apply flex items-center gap-3 px-4 py-3 text-[#5F6062] rounded-lg mx-2 transition-all duration-200;
+}
+
+.sidebar-nav-item:hover {
+  @apply bg-gray-100;
+}
+
+.sidebar-nav-item.active {
+  @apply bg-[#FEF2F1] text-[#E52713] font-medium;
+}
+
+/* App tiles - крупные плитки */
+.app-tile {
+  @apply bg-white rounded-2xl border border-gray-200 p-6 cursor-pointer transition-all duration-200;
+  min-height: 160px;
+}
+
+.app-tile:hover {
+  @apply border-[#E52713] shadow-lg;
+  transform: translateY(-2px);
+}
+
+.app-tile-icon {
+  @apply w-16 h-16 rounded-2xl flex items-center justify-center mb-4;
+  background: linear-gradient(135deg, #E52713 0%, #FF5A4D 100%);
+}
+
+/* Admin stat cards */
+.stat-card {
+  @apply bg-white rounded-xl border border-gray-200 p-5 transition-all duration-200;
+}
+
+.stat-card:hover {
+  @apply border-[#E52713] shadow-md;
+}
+
+/* Input styles - padding задаётся в компонентах через Tailwind */
+@layer base {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  textarea,
+  select {
+    @apply border border-gray-300 rounded-lg w-full transition-colors;
+    font-family: 'Geologica', system-ui;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    @apply outline-none border-[#E52713] ring-2 ring-[#FEF2F1];
+  }
+}
+
+/* Table styles */
+.table-header {
+  @apply bg-gray-50 text-[#5F6062] text-sm font-semibold uppercase tracking-wide;
+}
+
+.table-row {
+  @apply border-b border-gray-100 hover:bg-gray-50 transition-colors;
+}
+
+/* Badge styles */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-brand {
+  @apply bg-[#FEF2F1] text-[#E52713];
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-700;
+}
+
+.badge-warning {
+  @apply bg-amber-100 text-amber-700;
+}
+
+.badge-gray {
+  @apply bg-gray-100 text-gray-600;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply animate-spin rounded-full border-2 border-gray-300;
+  border-top-color: #E52713;
+}
+
+/* Spotlight animation */
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
+
+.animate-spotlight {
+  animation: spotlight 2s ease 0.75s 1 forwards;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: #E52713;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --bg-0: #FAF9F5;
+    --bg-000: #FAF9F5;
+    --bg-100: #FFFFFF;
+    --bg-200: #F0EEE6;
+    --bg-300: #DDDDDD;
+    --text-100: #1F1E1D;
+    --text-200: #3D3D3A;
+    --text-300: #73726C;
+    --text-400: #888888;
+    --text-500: #999999;
+    --accent-hover: #C91F0F;
+    --ease-silk: cubic-bezier(0.2, 0.0, 0, 1.0);
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: #D2996E;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --bg-0: #212121;
+    --bg-000: #212121;
+    --bg-100: #262624;
+    --bg-200: #30302E;
+    --bg-300: #454540;
+    --text-100: #ECECEC;
+    --text-200: #E1E1E0;
+    --text-300: #B4B4B4;
+    --text-400: #8A8A88;
+    --text-500: #6B6B65;
+    --accent-hover: #E5AA7F;
+  }
+  .theme {
+    --color-bg-0: var(--bg-0);
+    --color-bg-000: var(--bg-000);
+    --color-bg-100: var(--bg-100);
+    --color-bg-200: var(--bg-200);
+    --color-bg-300: var(--bg-300);
+    --color-text-100: var(--text-100);
+    --color-text-200: var(--text-200);
+    --color-text-300: var(--text-300);
+    --color-text-400: var(--text-400);
+    --color-text-500: var(--text-500);
+    --color-accent-hover: var(--accent-hover);
+    --font-serif: "Source Serif 4", Georgia, serif;
+    --font-sans: "Inter", "Onest", system-ui, sans-serif;
+    --shadow-input: 0 1px 2px -1px rgba(0, 0, 0, 0.08), 0 2px 8px -2px rgba(0, 0, 0, 0.04);
+    --shadow-input-hover: 0 1px 2px -1px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+    --shadow-input-focus: 0 0 0 2px rgba(217, 119, 87, 0.1), 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+    --color-background: var(--bg-0);
+    --color-foreground: var(--text-100);
+    --color-card: var(--bg-100);
+    --color-card-foreground: var(--text-100);
+    --color-popover: var(--bg-100);
+    --color-popover-foreground: var(--text-100);
+    --color-primary: var(--text-100);
+    --color-primary-foreground: var(--bg-0);
+    --color-secondary: var(--bg-200);
+    --color-secondary-foreground: var(--text-100);
+    --color-muted: var(--bg-200);
+    --color-muted-foreground: var(--text-400);
+    --color-accent-foreground: var(--bg-0);
+    --color-destructive: oklch(0.577 0.245 27.325);
+    --color-border: var(--bg-300);
+    --color-input: var(--bg-300);
+    --color-ring: var(--accent);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Toast slide-in animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Dialog scale-in animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s ease-out;
+}

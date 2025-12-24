@@ -1,0 +1,25 @@
+# Core
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+pydantic[email]==2.10.1
+pydantic-settings==2.6.1
+
+# Database
+sqlalchemy==2.0.36
+asyncpg==0.30.0
+alembic==1.14.0
+
+# Auth & Security
+python-jose[cryptography]==3.3.0
+authlib==1.3.0
+httpx==0.28.1
+
+# Utils
+python-dotenv==1.0.1
+python-multipart==0.0.9
+
+# Admin tools
+openpyxl==3.1.2
+
+# AI
+google-genai==1.0.0

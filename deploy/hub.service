@@ -1,0 +1,19 @@
+[Unit]
+Description=Hub OAuth2/SSO Service
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/opt/hub
+EnvironmentFile=/opt/hub/.env.prod
+ExecStart=/usr/bin/docker compose -f docker-compose.prod.yml --env-file .env.prod up -d
+ExecStop=/usr/bin/docker compose -f docker-compose.prod.yml down
+ExecReload=/usr/bin/docker compose -f docker-compose.prod.yml --env-file .env.prod up -d --force-recreate
+TimeoutStartSec=300
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

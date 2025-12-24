@@ -1,0 +1,40 @@
+# Environment
+.env
+.env.prod
+.env.local
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+nul
+
+# Logs
+*.log
+
+# Temp files
+cookies.txt
+quest.md
+openid-configuration.json
+*.tsbuildinfo
+
+# Test/dev files
+.playwright-mcp/
+adfs_test.py
+brand.pdf
+card-designs*.html
